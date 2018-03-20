@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>cs</title>
+    <link href="StyleSheet_DENGLU.css" rel="stylesheet" type="text/css">
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"> </script>
+<script type="text/javascript">
+
+
+function login_onclick() {
+    $.post("/login.ashx",
+            {
+                userName: $("#userName").val(),
+                passWord: $("#passWord").val()
+            },
+    //回掉函数
+           function (data) {
+               alert(data);
+           },
+    //返回类型  
+            "text"
+         );
+}
+
+</script>
+</head>
+<body style="height: 262px; background-color: #99CCFF">
+
+    <form id="form1" runat="server">
+    <div id="Bd">
+     <div id="denglu" class="whloe">
+        <div id="name" class="whloe">
+            <div class="part1">用户名</div>
+            <div class="part2">&nbsp;<input id="userName" type="text" /></div>    
+        </div>
+        <div id="pvd" class="whloe">
+            <div class="part1">密码</div>
+            <div class="part2">&nbsp;<input id="passWord" type="password" /></div>    
+        </div>
+        <div id="check" class="whloe">
+            <div class="part1">验证码</div>
+            <div>
+            &nbsp;<input id="Text3" type="text" />
+            &nbsp;<label>222</label>
+            </div>    
+        </div>
+        <div id="butten" class="whloe">
+            <div class="part1">
+                <input id="login" class=login-button  type="button" value="登陆" onclick="return login_onclick()" /></div>
+            <div id="chongzhi" class="part2"  >
+                <input id="Button2" class=login-button type="button" value="重置" onclick="chongzhi()"  /></div> 
+        </div>
+     </div>
+    </div>
+    </form>
+
+</body>
+</html>
